@@ -1,0 +1,11 @@
+pandas>=2.0
+numpy>=1.26
+scikit-learn>=1.4
+xgboost>=2.0
+lightgbm>=4.0
+matplotlib>=3.8
+seaborn>=0.13
+plotly>=5.20
+pyyaml>=6.0
+python-dotenv>=1.0
+jupyter>=1.0

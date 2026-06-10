@@ -1,0 +1,30 @@
+# Fashion-aware RFM configuration
+rfm:
+  recency_days: 90          # lookback window per season
+  frequency_min: 1
+  monetary_currency: EUR
+
+  # Fashion-specific adjustments
+  season_aware: true
+  seasons:
+    - name: SS              # Spring/Summer
+      months: [2, 3, 4, 5, 6, 7]
+    - name: AW              # Autumn/Winter
+      months: [8, 9, 10, 11, 12, 1]
+
+  drop_aware: true          # treat limited drops as separate purchase contexts
+  outlet_discount_threshold: 0.40  # flag purchases > 40% off as outlet behaviour
+
+  scoring:
+    quintiles: 5
+    weights:
+      recency: 0.35
+      frequency: 0.35
+      monetary: 0.30
+
+segments:
+  champions:    { r: [4,5], f: [4,5], m: [4,5] }
+  loyal:        { r: [3,5], f: [3,5], m: [3,5] }
+  at_risk:      { r: [1,2], f: [3,5], m: [3,5] }
+  lost:         { r: [1,2], f: [1,2], m: [1,2] }
+  outlet_only:  { outlet_ratio_min: 0.80 }
