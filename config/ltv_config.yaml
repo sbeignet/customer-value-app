@@ -1,0 +1,19 @@
+# LTV model configuration
+ltv:
+  horizon_months: 12
+  n_ltv_segments: 4
+  ltv_tiers:
+    platinum: { top_pct: 0.10 }
+    gold:     { top_pct: 0.30 }
+    silver:   { top_pct: 0.70 }
+    bronze:   { top_pct: 1.00 }
+
+  model:
+    n_estimators: 400
+    learning_rate: 0.05
+    num_leaves: 31
+    min_child_samples: 10
+    subsample: 0.8
+    colsample_bytree: 0.8
+    reg_alpha: 0.1
+    reg_lambda: 0.1
