@@ -1,0 +1,32 @@
+# Cost-to-serve configuration (EUR)
+outlet_discount_threshold: 0.40
+
+costs:
+  # Fulfilment: pick + pack + last-mile shipping
+  fulfilment_per_order: 8.50
+  outlet_fulfilment_discount: 0.30   # outlet warehouse orders cost 30% less to ship
+
+  # Returns: reverse logistics + restocking per item returned
+  return_per_item: 12.00
+  category_return_multipliers:        # relative to base cost
+    dresses: 1.20
+    outerwear: 1.15
+    footwear: 1.10
+    tops: 1.00
+    bottoms: 1.00
+    accessories: 0.70
+
+  # Customer service: cost per inbound contact (call, chat, email)
+  service_per_contact: 6.50
+  drop_spike_factor: 2.5              # drop launches generate 2.5x contacts per order
+
+  # Acquisition: amortised CAC
+  default_cac: 35.00
+  cac_amortisation_months: 12
+  cac_by_channel:
+    paid_social: 45.00
+    paid_search: 38.00
+    email: 12.00
+    organic: 8.00
+    referral: 20.00
+    store: 25.00
